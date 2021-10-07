@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ATTModule</string>
+    <string name="channel_title">Channel id </string>
+    <string name="channel_Session">Session Duration :000000 </string>
+    <string name="channel_Duaration">Session Duration </string>
+
+
+
+</resources>
