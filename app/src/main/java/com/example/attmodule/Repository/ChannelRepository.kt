@@ -11,25 +11,21 @@ import java.util.concurrent.Flow
 import javax.inject.Inject
 
 class ChannelRepository @Inject constructor(private val apiService: ApiService) {
-    fun getChannelData() : Flow<List<Channels>> = flow {
-        flow<Channels> {
+    fun getChannelData()  = flow {
             val response = apiService.getProgramChannel()
             emit(response)
         }.flowOn(Dispatchers.IO)
-    }
 
-    fun getRecordingResponse() :Flow<List<RecordingResponse>> = flow {
-        flow<RecordingResponse> {
+
+    fun getRecordingResponse() = flow {
             val response = apiService.RecordingRequest()
             emit(response)
         }.flowOn(Dispatchers.IO)
-    }
 
-    fun getCancelResposnse() :Flow<List<RecordingResponse>> = flow {
-        flow<CancelResponse> {
+
+    fun getCancelResposnse() = flow {
             val response = apiService.RecordingCancel()
             emit(response)
         }.flowOn(Dispatchers.IO)
-    }
 
 }

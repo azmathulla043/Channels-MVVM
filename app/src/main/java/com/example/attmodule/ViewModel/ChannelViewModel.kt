@@ -10,7 +10,9 @@ import com.example.attmodule.Model.Channels
 import com.example.attmodule.Model.RecordingResponse
 import com.example.attmodule.Repository.ChannelRepository
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
+
 
 class ChannelViewModel @ViewModelInject constructor(
     private val repository: ChannelRepository):ViewModel() {
@@ -32,7 +34,7 @@ class ChannelViewModel @ViewModelInject constructor(
 
     fun getRecordingResponse() {
         viewModelScope.launch {
-            repository.getChannelData()
+            repository.getRecordingResponse()
                 .catch { e ->
                     Log.d("main", "getPost: ${e.message}")
                 }.collect { response ->
